@@ -1,3 +1,4 @@
+/* Nicholas Hansen */
 /* Contoh Program ke : 1 */
 /* Program : struktur data statis mahasiswa */
 #include <conio.h>
