@@ -19,16 +19,19 @@ struct data maba[nmax]; // deklarasi variabel bertipe struct
 void tambah_data();     // prototype fungsi void
 void hapus_data();
 void tampilkan_data();
+void update_data();
 main()
 {
+    system("cls");
     int pil;
 menu:
     cout << " \t\t MENU \n";
     cout << "1. tambah data\n";
     cout << "2. hapus data \n";
     cout << "3. tampilkan data \n";
-    cout << "4. keluar \n";
-    cout << "\n Pilih menu (1/2/3/4) ? ";
+    cout << "4. update data \n";
+    cout << "5. keluar \n";
+    cout << "\nPilih menu (1/2/3/4) ? ";
     cin >> pil;
     if (pil == 1)
         tambah_data();
@@ -37,6 +40,8 @@ menu:
     else if (pil == 3)
         tampilkan_data();
     else if (pil == 4)
+        update_data();
+    else if (pil == 5)
         exit(1); // atau bisa pakai return(0)
     else
     {
@@ -97,3 +102,61 @@ void tampilkan_data()
         }
     }
 }
+
+void update_data()
+{
+    int x, nomor;
+
+    cout << "Mau ubah data keberapa : "; 
+    cin >> x;
+
+    cout << endl;
+    if ((x <= n) and (x >= 1))
+    {
+        cout << "Data Mahasiswa ke - " << x << endl;
+        cout << "1. Nama : "<<maba[x - 1].nama;
+        cout << endl;
+        cout << "2. NIM  : "<<maba[x - 1].nim;
+        cout << endl;
+        cout << "3. Kom  : "<<maba[x - 1].kom;
+        cout << endl;
+        cout << "Mau update data keberapa? (1 sd. 3): "; 
+        cin>>nomor;
+
+        if (nomor == 1)
+        {
+            cout<<"Masukkan nama baru     : "; 
+            cin>>maba[x - 1].nama;
+        } 
+        else if (nomor == 2) 
+        {
+            cout<<"Masukkan nim baru      : ";
+            cin>>maba[x - 1].nim;
+        } 
+        else if (nomor == 3) 
+        {
+            cout<<"Masukkan kom baru      : ";
+            cin>>maba[x - 1].kom;
+        }
+
+        cout << "HASIL UPDATE" << endl;
+        cout << "\nNama : " << maba[x - 1].nama;
+        cout << "\nNIM : " << maba[x - 1].nim;
+        cout << "\nKom : " << maba[x - 1].kom;
+        cout << endl;
+    } 
+
+    else 
+    {
+        cout << "Indeks Anda SALAH, silakan diubah" << endl;
+    }
+}
+    //0. check the data size if the data is filled or not?
+    //1. user choose the data index
+    //2. check the data index if there is data or not
+    //3. ask user to update what data
+    //4. update the data
+    //5. output the data
+    //how to update the data
+    //
+
